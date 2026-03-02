@@ -1,0 +1,947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Alexsey Grigorev">
+      
+      
+        <link rel="canonical" href="https://docs.lord-mikrotik.ru/memos-docker/">
+      
+      
+        <link rel="prev" href="../doh-dns/">
+      
+      
+        <link rel="next" href="../network-opnnebula-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>memos-docker - lord-mikrotik docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#memos-docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="lord-mikrotik docs" class="md-header__button md-logo" aria-label="lord-mikrotik docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lord-mikrotik docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              memos-docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="lord-mikrotik docs" class="md-nav__button md-logo" aria-label="lord-mikrotik docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lord-mikrotik docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trilium-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trilium note on docker compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../doh-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dns-doh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    memos-docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    memos-docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#memosdomaincom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        memos.domain.com указан как пример
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up-memos-server-note-on-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Up memos server note on docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После установки докера и докер compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Создадим папку для проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Создаем docker-compose.yml и поднимаем контейнер
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Создаем docker-compose.yml и поднимаем контейнер">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cодержимое docker-compose.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-up-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поднимаем контейнер через команду docker compose up -d так же смотрим статус контейнера ниже пример того чего мы должны увидеть
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Настраиваем nginx т.к безопаснее будет заходить на сайт по домен
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Настраиваем nginx т.к безопаснее будет заходить на сайт по домен">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nginx-certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Если у вас не установлен nginx и certbot то устанавливаем и включаем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройка самого nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создаем файл
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memosdomaincom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Содержимое файла memos.domain.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Обязательно делаем ссылку без нее не будет работать и перезапускаем nginx
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Получение сертификата
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-opnnebula-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opennebula guide up internet for VM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vaultwarden-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maneger passwords vaulwarden on docker with nginx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web-ide-VS-cod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    web ide VS cod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#memosdomaincom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        memos.domain.com указан как пример
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up-memos-server-note-on-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Up memos server note on docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        После установки докера и докер compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Создадим папку для проекта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Создаем docker-compose.yml и поднимаем контейнер
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Создаем docker-compose.yml и поднимаем контейнер">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cодержимое docker-compose.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-up-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поднимаем контейнер через команду docker compose up -d так же смотрим статус контейнера ниже пример того чего мы должны увидеть
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Настраиваем nginx т.к безопаснее будет заходить на сайт по домен
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Настраиваем nginx т.к безопаснее будет заходить на сайт по домен">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nginx-certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Если у вас не установлен nginx и certbot то устанавливаем и включаем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройка самого nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создаем файл
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memosdomaincom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Содержимое файла memos.domain.com
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Обязательно делаем ссылку без нее не будет работать и перезапускаем nginx
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Получение сертификата
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="memos-docker">memos-docker</h1>
+<h3 id="memosdomaincom"><code>memos.domain.com</code> указан как пример</h3>
+<h3 id="up-memos-server-note-on-docker">Up memos server note on docker</h3>
+<h3 id="compose">После установки докера и докер compose</h3>
+<h3 id="1">1. Создадим папку для проекта</h3>
+<pre><code>mkdir -p /etc/docker/memos
+cd /etc/docker/memos
+</code></pre>
+<h3 id="2-docker-composeyml">2. Создаем <code>docker-compose.yml</code> и поднимаем контейнер</h3>
+<pre><code>nano docker-compose.yml
+</code></pre>
+<h4 id="c-docker-composeyml">Cодержимое <code>docker-compose.yml</code></h4>
+<pre><code class="language-yml">services:
+  memos:
+    image: neosmemo/memos:stable
+    container_name: memos
+    ports:
+     - &quot;127.0.0.1:5230:5230&quot;
+    volumes:
+      - /root/.memos:/var/opt/memos
+    environment:
+      - MEMOS_MODE=prod
+      - MEMOS_PORT=5230
+    restart: unless-stopped
+    networks:
+      proxy:                              # Подключаем контейнер к внешней сети &quot;proxy&quot; (используется Traefik)
+    labels:                               # Метки для интеграции с Traefik (обратный прокси)
+      - &quot;traefik.enable=true&quot;                                      # Включаем обработку контейнера Traefik
+      - &quot;traefik.http.routers.memos.entrypoints=web&quot;             # Определяем HTTP-вход (порт 80)
+      - &quot;traefik.http.routers.memos.rule=Host(`memos.domain.com`)&quot;  # Трафик на этот домен будет направляться в данный контейнер
+      - &quot;traefik.http.middlewares.memos-https-redirect.redirectscheme.scheme=https&quot;         # Middleware для редиректа с HTTP на HTTPS
+      - &quot;traefik.http.routers.memos.middlewares=memos-https-redirect&quot;          # Применяем middleware редиректа к HTTP-маршруту
+      - &quot;traefik.http.routers.memos-secure.entrypoints=websecure&quot;          # Определяем HTTPS-вход (порт 443)
+      - &quot;traefik.http.routers.memos-secure.rule=Host(`memos.domain.com`)&quot;         # HTTPS-маршрут для того же домена
+      - &quot;traefik.http.routers.memos-secure.tls=true&quot;          # Включаем TLS (HTTPS)
+      - &quot;traefik.http.routers.memos-secure.service=memos&quot;     # Привязываем HTTPS-маршрут к сервису memos
+      - &quot;traefik.http.services.memos.loadbalancer.server.port=5230&quot;          # Указываем внутренний порт, на котором memos слушает в контейнере
+      - &quot;traefik.docker.network=proxy&quot;          # Указываем, что Traefik должен искать контейнер в сети &quot;proxy&quot;
+
+networks:
+  proxy:                                  # Определение внешней сети для взаимодействия с Traefik
+    external: false                       
+</code></pre>
+<h4 id="docker-compose-up-d">Поднимаем контейнер через команду <code>docker compose up -d</code> так же смотрим статус контейнера ниже пример того чего мы должны увидеть</h4>
+<pre><code class="language-bash">root@server-gw-git:/etc/docker/memos# docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED        STATUS                    PORTS                                                               NAMES
+2a2e7864c6e6   neosmemo/memos:stable       &quot;/usr/local/memos/en…&quot;   18 hours ago   Up 18 hours               127.0.0.1:5230-&gt;5230/tcp                                            memos
+root@server-gw-git:/etc/docker/memos# 
+</code></pre>
+<h3 id="3-nginx">3. Настраиваем nginx т.к безопаснее будет заходить на сайт по домен</h3>
+<h5 id="nginx-certbot">Если у вас не установлен <code>nginx</code> и <code>certbot</code> то устанавливаем и включаем</h5>
+<pre><code>apt install certbot python3-certbot-nginx nginx
+systemctl enable --now nginx
+</code></pre>
+<h5 id="nginx">Настройка самого nginx</h5>
+<h5 id="_1">Создаем файл</h5>
+<pre><code>nano /etc/nginx/sites-available/memos.domain.com
+</code></pre>
+<h4 id="memosdomaincom_1">Содержимое файла <code>memos.domain.com</code></h4>
+<pre><code>server {
+    server_name memos.domain.com;
+
+    location / {
+        client_max_body_size 512M;
+        proxy_pass http://127.0.0.1:5230;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        add_header Strict-Transport-Security &quot;max-age=15552000; includeSubDomains&quot; always;
+    }
+}
+</code></pre>
+<h3 id="4-nginx">4. Обязательно делаем ссылку без нее не будет работать и перезапускаем nginx</h3>
+<pre><code class="language-bash">ln -s /etc/nginx/sites-available/memos.domain.com /etc/nginx/sites-enabled/
+systemctl restart nginx
+</code></pre>
+<h3 id="5">5. Получение сертификата</h3>
+<p>Пишем команду <code>certbot --nginx -d memos.domain.ru</code> после этого вы можете переходить на доменное имя <code>memos.domain.com</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Alexsey Grigorev, 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

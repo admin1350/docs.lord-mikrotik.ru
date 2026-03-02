@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/Trilium-docker/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/doh-dns/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/memos-docker/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/network-opnnebula-guide/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/vaultwarden-docker/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.lord-mikrotik.ru/web-ide-VS-cod/</loc>
+         <lastmod>2026-03-02</lastmod>
+    </url>
+</urlset>
