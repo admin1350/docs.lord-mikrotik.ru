@@ -4,3 +4,8 @@ site_author: Alexsey Grigorev
 copyright: Alexsey Grigorev, 2026
 theme:
   name: material
+plugins:
+  - multirepo:
+      repos:
+        - section: Project A
+          import_url: 'https://github.com/admin1350/man.lord-mikrotik.ru'
