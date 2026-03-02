@@ -1,0 +1,6 @@
+site_name: lord-mikrotik docs
+site_url: https://docs.lord-mikrotik.ru/
+site_author: Alexsey Grigorev
+copyright: Alexsey Grigorev, 2026
+theme:
+  name: material
