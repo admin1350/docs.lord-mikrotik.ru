@@ -5,9 +5,10 @@
 ## Математические проекты
 
 Сообщество преподавателей математических и информационных дисциплин СПО
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LXb3EKWsInQ" 
+frameborder="0" allowfullscreen></iframe>
 Toggle navigation
-
+<div class="start-screen-module__startScreenWrapper___jRKa_" data-testid="start-screen"><img data-testid="ui-poster" id="raichuVideoPoster" class="background-image-module__poster___cOxTl" src="https://pic.rtbcdn.ru/video/72/a3/72a3ffba9a2e850a5dd8320a2cbed856.png" alt="Интервью с организаторами и преподавателями" loading="lazy" srcset="https://pic.rtbcdn.ru/video/72/a3/72a3ffba9a2e850a5dd8320a2cbed856.png?width=555 1x, https://pic.rtbcdn.ru/video/72/a3/72a3ffba9a2e850a5dd8320a2cbed856.png?width=832 1.5x, https://pic.rtbcdn.ru/video/72/a3/72a3ffba9a2e850a5dd8320a2cbed856.png?width=1110 2x, https://pic.rtbcdn.ru/video/72/a3/72a3ffba9a2e850a5dd8320a2cbed856.png?width=1665 3x"></div>
 -   [](/ "Математические проекты")
 -   [Математика без границ](https://mpcollege.ru/matematika_bez_granic/ "Математика без границ")
 -   [Математические технологии](https://mpcollege.ru/matematicheskie_tekhnologii/ "Математические технологии")
